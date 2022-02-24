@@ -1,13 +1,9 @@
-import Index from './components/index';
+import Index from './components/Index';
 
 import './App.css';
 
 function App() {
-  return (
-    <div className="app">
-      <Index />
-    </div>
-  );
+  return <Index />;
 }
 
 export default App;

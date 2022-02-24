@@ -2,19 +2,144 @@
 - Desktop: 1440px */
 
 :root {
-  --Moderate-violet: hsl(263, 55%, 52%);
-  --Very-dark-grayish-blue: hsl(217, 19%, 35%);
-  --Very-dark-blackish-blue: hsl(219, 29%, 14%);
-  --White: hsl(0, 0%, 100%);
+  --moderate-violet: hsl(263, 55%, 52%);
+  --very-dark-grayish-blue: hsl(217, 19%, 35%);
+  --very-dark-blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
 
-  --Light-gray: hsl(0, 0%, 81%);
-  --Light-grayish-blue: hsl(210, 46%, 95%);
+  --moderate-violet-light: hsl(264, 82%, 70%);
+  --light-gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+
+  --section-radius: 8px;
 }
 
-/*Note for text colors:
-
+/*
 1. "Verified Graduate" has the same color as the person's name with 50% opacity
 2. Review paragraphs inside the quotations have the same color as well, but are at 70% opacity*/
 
-.app {
+.container {
+  display: grid;
+  gap: 1.5rem;
+  min-height: 100vh;
+  background-color: var(--light-grayish-blue);
+}
+@media (max-width: 769px) {
+}
+@media screen and (max-width: 769px) {
+  .container {
+    justify-items: center;
+    padding-top: 5rem;
+    padding-bottom: 5rem;
+  }
+}
+
+@media (min-width: 769px) {
+  .container {
+    grid-template-columns: repeat(4, 250px);
+    grid-template-rows: repeat(2, 250px);
+    place-content: center;
+    gap: 2rem;
+    grid-template-areas:
+      'first first second third'
+      'fourth fifth fifth third';
+  }
+}
+
+.section {
+  border-radius: var(--section-radius);
+  padding: 1.8rem 2.1rem 2.2rem;
+}
+@media screen and (max-width: 769px) {
+  .section {
+    max-width: 90%;
+  }
+}
+@media (min-width: 769px) {
+  section:nth-child(1) {
+    grid-area: first;
+  }
+  section:nth-child(2) {
+    grid-area: second;
+  }
+  section:nth-child(3) {
+    grid-area: fourth;
+  }
+  section:nth-child(4) {
+    grid-area: fifth;
+  }
+  section:nth-child(5) {
+    grid-area: third;
+  }
+}
+
+.section-title {
+  display: flex;
+  column-gap: 1rem;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.quote-holder {
+  width: 100%;
+  position: relative;
+  z-index: 0;
+}
+
+.quote-icon {
+  position: absolute;
+  right: 0;
+  top: -23px;
+  width: 99px;
+}
+@media (min-width: 769px) {
+  .quote-icon {
+    right: 55px;
+  }
+}
+
+.section-title .image:not(img[src$='.svg']) {
+  width: 2.1rem;
+  height: 2.1rem;
+  border-radius: 100%;
+}
+
+.section:nth-child(1) .image:not(img[src$='.svg']) {
+  border: 2px solid var(--moderate-violet-light);
+}
+.section:nth-child(4) .image {
+  border: 2px solid var(--moderate-violet);
+}
+
+.section-name,
+.section-verify {
+  font-size: 0.9rem;
+  text-transform: capitalize;
+}
+
+.section-name {
+  margin-bottom: 2px;
+}
+
+.section-verify {
+  opacity: 50%;
+}
+
+.section-text {
+  font-size: 1.6rem;
+  font-weight: 500;
+  margin-bottom: 1rem;
+}
+.section:nth-child(1) .section-text {
+  position: relative;
+}
+@media (min-width: 769px) {
+  .section:nth-child(1) .section-text {
+    font-size: 1.5rem;
+  }
+}
+
+.section-review {
+  font-weight: 500;
+  opacity: 70%;
 }
