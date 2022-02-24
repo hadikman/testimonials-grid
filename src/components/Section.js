@@ -2,32 +2,32 @@ import styled, {css} from 'styled-components';
 
 const Card = styled.section`
   ${props =>
-    props.first &&
+    props.themeClass === 'first' &&
     css`
       background-color: var(--moderate-violet);
     `}
   ${props =>
-    props.second &&
+    props.themeClass === 'second' &&
     css`
       background-color: var(--very-dark-grayish-blue);
     `}
   ${props =>
-    props.third &&
+    props.themeClass === 'third' &&
     css`
       background-color: var(--white);
     `}
   ${props =>
-    props.fourth &&
+    props.themeClass === 'fourth' &&
     css`
       background-color: var(--very-dark-blackish-blue);
     `}
   ${props =>
-    props.fifth &&
+    props.themeClass === 'fifth' &&
     css`
       background-color: var(--white);
     `}
   ${props =>
-    props.light &&
+    props.theme === 'light' &&
     css`
       .section-name,
       .section-verify,
@@ -39,7 +39,7 @@ const Card = styled.section`
       }
     `}
   ${props =>
-    props.dark &&
+    props.theme === 'dark' &&
     css`
       .section-name,
       .section-verify,
